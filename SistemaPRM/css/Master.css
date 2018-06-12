@@ -1,0 +1,174 @@
+﻿.mayus {
+    text-transform: uppercase;
+}
+
+.navMenu {
+    background-color: #102e56;
+    margin-top: 50px;
+    color: white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 50px;
+}
+
+.divBody {
+    margin-top: 50px;
+    background-color: white;
+    border-left-color: #102e56;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-right-color: #102e56;
+    border-right-width: 2px;
+    border-right-style: solid;
+    max-height: 100%;
+}
+
+.nav-stacked .panel {
+    background-color: transparent;
+    margin-bottom: 0;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0px;
+}
+
+li {
+    padding-top: 0px;
+}
+
+.nav-stacked .panel ul li a {
+    padding-left: 30px;
+    background-color: #3e82da;
+}
+
+.nav-stacked .panel ul li {
+    margin-top: 0px;
+}
+
+.nav-stacked .panel a {
+    background-color: #215dab;
+    margin-top: 0;
+}
+
+.nav-stacked .panel a {
+    color: #fff;
+}
+
+.nav-stacked .panel ul li ul li a {
+    padding-left: 60px;
+    background-color: #699ee2;
+}
+
+.nav-stacked .panel a:hover, .nav-stacked .panel a:focus {
+    background-color: #184681;
+}
+@font-face {
+    font-family: "Philosopher-Regular";
+    src: url("fonts/Philosopher-Regular.ttf") format("truetype")
+}
+
+.fondo img {
+    z-index: 1;
+    opacity: .5;
+}
+
+.fondo {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /*background-color: #3E5C89;*/
+}
+
+/**LOGO**/
+
+.logo {
+    width: 224px;
+    height: 140px;
+    background-color: transparent;
+    left: 20px;
+    top: 20px;
+    padding: 0;
+}
+
+.logo-slogan {
+    width: 100%;
+    height: 180px;
+    z-index: 2;
+    background: -prefix-linear-gradient(180deg, rgba(220,220,220,.4), white);
+    background: linear-gradient(180deg, rgba(220,220,220,.4), white);
+    padding: 0 0 0 0;
+}
+
+/*SLIDER Y FECHA ACTUAL*/
+
+.carousel-img {
+    min-width: 100%;
+    max-height: 150px;
+    border-radius: 10px;
+}
+
+.carousel-prm {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.actual-date-layer {
+    margin-top: 10px;
+    background-color: #0c223f;
+    border-color: #0c223f;
+}
+
+.shadowfilter {
+    -webkit-filter: drop-shadow(0px 0px 15px #fff);
+    filter: drop-shadow(0px 0px 10px #fff);
+}
+
+.btn-info.actual-date-layer .badge {
+    color: #0c223f;
+}
+
+/*MENU BARRA*/
+.navbar-default .navbar-nav > li.active > a {
+    background-color: #102e56;
+    color: white;
+}
+
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a:hover {
+        background-color: #102e56;
+        color: white;
+    }
+
+.navbar-default {
+    top: 180px;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.wrapper {
+    min-height: 800px;
+}
+
+.skin-blue .main-sidebar {
+    background: -prefix-linear-gradient(180deg,#0c223f, #689ee3);
+    background: linear-gradient(180deg, #0c223f, white);
+    max-height: 100px;
+}
+
+.navMenu {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.row .x {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.skin-blue .user-panel > .info, .skin-blue .user-panel > .info > a {
+}
+
+body {
+    background-color: white;
+}
