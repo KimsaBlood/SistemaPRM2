@@ -7,8 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Cryptography;
-/*using OfficeOpenXml;
-using OfficeOpenXml.Style;*/
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System.Data;
 using System.IO;
 using System.Drawing;
@@ -30,7 +30,7 @@ public class Extras
     //String ipaddress = "192.168.254.247";
     String ipaddress = System.Configuration.ConfigurationManager.AppSettings["serverMail"];
 
-   /* public String EscribeExcel(String Ruta, DataTable tbl)
+    public String EscribeExcel(String Ruta, DataTable tbl)
     {
         FileInfo newFile = new FileInfo(Ruta);
         if (newFile.Exists)
@@ -76,9 +76,9 @@ public class Extras
 
         }
         return newFile.Name;
-    }*/
+    }
 
-   /* public String EscribeExcel(String Ruta, DataTable tbl, String Libro)
+    public String EscribeExcel(String Ruta, DataTable tbl, String Libro)
     {
         FileInfo newFile = new FileInfo(Ruta);
         if (newFile.Exists)
@@ -124,7 +124,7 @@ public class Extras
 
         }
         return newFile.Name;
-    }*/
+    }
 
     public void sendMail(String correo, string body, string subject, string urlPDF)
     {
