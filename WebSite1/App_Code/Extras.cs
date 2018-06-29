@@ -14,7 +14,7 @@ using System.IO;
 using System.Drawing;
 /// <summary>
 /// Descripción breve de Extras
-/// </summary>
+/// </summary> 
 public class Extras
 {
     public Extras()
