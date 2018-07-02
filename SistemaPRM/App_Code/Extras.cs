@@ -7,8 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Cryptography;
-/*using OfficeOpenXml;
-using OfficeOpenXml.Style;*/
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System.Data;
 using System.IO;
 using System.Drawing;
@@ -166,7 +166,6 @@ public class Extras
 
         mail.Subject = subject;
         mail.To.Add(correo);
-        mail.CC.Add("ymartinez@momentum-ti.com");
         mail.CC.Add("erick.hernandez@prmseguros.com");
         mail.CC.Add(donde);
         mail.Body = body;
@@ -216,7 +215,6 @@ public class Extras
 
             mail.Subject = subject;
             mail.To.Add(correo);
-            mail.CC.Add("ymartinez@momentum-ti.com");
             mail.CC.Add("erick.hernandez@prmseguros.com");
             mail.CC.Add("lizbeth.cruz@prmseguros.com");
             mail.Body = body;

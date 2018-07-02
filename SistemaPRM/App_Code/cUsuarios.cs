@@ -258,18 +258,18 @@ public class cUsuarios
         Password = PasswordN;
     }
 
-    public String ValidaUsr()
+    public String Ingresar()
     {
         String Mensaje = "";
 
         DatosSql sql = new DatosSql();
         Password = new Extras().ConvierteMD5(Password);
 
-        DataTable tblUsr = sql.TraerDataTable("sp_GetSession", User, Password);
+        DataTable tblUsr = sql.TraerDataTable("sp_Acceso", User, Password);
 
         if (tblUsr.Rows.Count > 0)
         {
-            PersonID = Convert.ToInt32(tblUsr.Rows[0]["Person_ID"].ToString());
+            PersonID = Convert.ToInt32(tblUsr.Rows[0]["idUsuario"].ToString());
             Mensaje = tblUsr.Rows[0]["msj"].ToString();
         }
 

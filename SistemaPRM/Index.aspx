@@ -56,7 +56,7 @@
                             <form id="form1" runat="server">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Correo electronico" TextMode="Email" required="required"></asp:TextBox>
+                                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Correo electronico" required="required"></asp:TextBox>
                                 </div>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

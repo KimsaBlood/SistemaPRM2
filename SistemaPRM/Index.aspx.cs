@@ -18,20 +18,22 @@ public partial class Index : System.Web.UI.Page
 
     protected void btnLogin_Click1(object sender, EventArgs e)
     {
-        //cUsuarios obj = new cUsuarios(txtUsuario.Text, txtPsw.Text);
+        cUsuarios obj = new cUsuarios(txtUsuario.Text, txtPsw.Text);
 
-        //String Mensaje = obj.ValidaUsr();
-        int i = 0;
-        if (i != 1)
+        String msj = obj.Ingresar();
+        if (msj.Equals("Acceso correcto"))
         {
-            // Session.Add("Person_ID", obj.PersonID);
+            Session.Add("idUsuario", obj.PersonID);
             Server.Transfer("Midas.aspx", true);
-
-
         }
-        else
+        else if(msj.Equals("Contrase?a incorrecta"))
         {
-            String alert= "$.alert({title: 'Oh!',theme: 'material',content: 'Correo electronico o contraseña incorrectos',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+            String alert= "$.alert({title: 'Oh!',theme: 'material',content: 'Contraseña incorrecta',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", alert, true);
+        }
+        else if (msj.Equals("Usuario incorrecto"))
+        {
+            String alert = "$.alert({title: 'Oh!',theme: 'material',content: 'Usuario inexistente',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", alert, true);
         }
     }
