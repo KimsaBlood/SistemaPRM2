@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Midas.master.cs" Inherits="Midas" %>
 
+<%@ Register Src="~/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
 
 
 <!DOCTYPE html>
@@ -80,7 +81,8 @@
                    <div class="navMenu">
                        <asp:Image ID="imgFoto" runat="server" style="margin-left:15px;margin-top:10px; margin-bottom:20px;" CssClass="img-thumbnail" AlternateText="User" Width="55" Height="55"/>
                               <p class="forever" style="margin-top:-65px;margin-left:100px;"><b>Bienvenido</b><br /><asp:Label ID="lblNombre" runat="server"></asp:Label></p>
-                        <ul style="padding-left:0;">                    
+                        <ul style="padding-left:0;"> 
+                             <uc1:Menu runat="server" ID="Menu" />                         
                         </ul>
                     </div>
                 </div>

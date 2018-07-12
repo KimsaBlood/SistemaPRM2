@@ -1,0 +1,295 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 15, 2018, 9:20:16 AM
+    Author     : luisjimenezdelgado
+*/
+.main-container {
+  min-height: 80vh;
+  background-image: url(../img/logo-01.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+  background-size: contain; }
+
+.container {
+  position: relative; }
+  .container input[type='text'], .container input[type='email'], .container input[type=password] {
+    font-weight: 500;
+    position: relative;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.6); }
+    .container input[type='text']:hover, .container input[type='email']:hover, .container input[type=password]:hover {
+      border-bottom: 2px solid black;
+      color: black; }
+  .container a {
+    color: #2294E3; }
+    .container a:hover {
+      color: #909090; }
+    .container a:link {
+      color: #909090; }
+    .container a:visited {
+      color: #909090; }
+    .container a:active {
+      color: #909090; }
+  @media only screen and (min-width: 20px) {
+    .container {
+      width: 100%;
+      height: auto;
+      display: block; }
+      .container input[type='text'], .container input[type='email'], .container input[type=password] {
+        background-color: white;
+        width: 100%;
+        height: 2rem;
+        display: inline-table;
+        font-size: 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.6); }
+      .container a {
+        font-size: 1.2rem; } }
+  @media only screen and (min-width: 768px) {
+    .container {
+      width: 100%;
+      height: auto;
+      display: block; }
+      .container input[type='text'], .container input[type='email'], .container input[type=password] {
+        width: 65%;
+        height: 1.8rem;
+        display: inline-table;
+        font-size: 1.3rem;
+        border-bottom: 2.5px solid rgba(0, 0, 0, 0.6); }
+      .container a {
+        font-size: 1.2rem; } }
+
+.header-container, .footer-container, main {
+  background-color: #0d233e; }
+
+.respuesta {
+  position: relative;
+  overflow-x: auto; }
+  @media only screen and (min-width: 0px) {
+    .respuesta {
+      width: 100%;
+      height: auto;
+      display: table;
+      margin-left: 0%; }
+      .respuesta table {
+        width: 100%;
+        height: auto;
+        background-color: white;
+        display: table;
+        font-size: 1rem; }
+        .respuesta table th {
+          padding: .5rem;
+          padding-top: .8rem;
+          padding-bottom: .8rem;
+          font-size: 1rem; }
+        .respuesta table td {
+          font-size: .9rem;
+          padding: .5rem; } }
+  @media only screen and (min-width: 768px) {
+    .respuesta {
+      width: 90%;
+      height: auto;
+      display: table;
+      margin-left: 5%; }
+      .respuesta table {
+        width: 100%;
+        height: auto;
+        display: table; }
+        .respuesta table th {
+          padding: 1rem;
+          padding-top: 1.2rem;
+          padding-bottom: 1.2rem;
+          font-size: 1.2rem; }
+        .respuesta table td {
+          padding: 1rem;
+          font-size: 1.1rem; } }
+  .respuesta table {
+    position: relative;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: left; }
+    .respuesta table th {
+      border: 1px solid rgba(50, 50, 50, 0.8);
+      background-color: #0d233e;
+      color: white; }
+    .respuesta table tr:nth-child {
+      background-color: rgba(50, 50, 50, 0.8); }
+
+.header-container {
+  color: white; }
+
+.titulo {
+  text-align: left;
+  font-weight: 600; }
+
+.grande {
+  font-size: 1.3rem; }
+
+.chico {
+  font-size: 1.1rem; }
+
+.sinPolizas {
+  position: relative;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.2rem; }
+  @media only screen and (min-width: 0px) {
+    .sinPolizas {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      margin-left: 0%;
+      font-size: 1.2rem; } }
+  @media only screen and (min-width: 768px) {
+    .sinPolizas {
+      width: 90%;
+      height: auto;
+      display: inline-block;
+      margin-left: 5%;
+      font-size: 1.2rem; } }
+
+.btn {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none; }
+  @media only screen and (min-width: 0px) {
+    .btn {
+      width: 100%;
+      height: auto;
+      background-color: #0d233e;
+      display: inline-block;
+      margin-top: 1rem;
+      margin-left: 0%;
+      font-size: 1.2rem; } }
+  @media only screen and (min-width: 768px) {
+    .btn {
+      width: auto;
+      height: auto;
+      background-color: #0d233e;
+      display: inline-block;
+      margin-left: 1.5rem;
+      font-size: 1.2rem;
+      padding: .5rem .83rem; } }
+
+.main {
+  position: relative; }
+  @media only screen and (min-width: 0px) {
+    .main {
+      width: 100%;
+      height: 100%;
+      display: table;
+      margin-left: 0%; } }
+  @media only screen and (min-width: 768px) {
+    .main {
+      width: 90%;
+      height: 100%;
+      display: table;
+      margin-left: 5%; } }
+
+.header-container .container {
+  position: relative; }
+  @media only screen and (min-width: 0px) {
+    .header-container .container {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      margin-left: 0%; } }
+  @media only screen and (min-width: 768px) {
+    .header-container .container {
+      width: 90%;
+      height: auto;
+      display: inline-block;
+      margin-left: 5%;
+      font-size: 1.2rem; } }
+.header-container .mini-container {
+  width: auto;
+  height: 100%;
+  display: block; }
+
+.izquierdo {
+  position: relative;
+  display: table;
+  float: left; }
+
+.derecho {
+  position: relative;
+  display: table;
+  float: right; }
+
+.divRegistro {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(40, 40, 40, 0.6);
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  top: 0px;
+  vertical-align: middle;
+  align-content: center;
+  justify-content: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center; }
+  .divRegistro .blur {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.7);
+    display: flex;
+    z-index: 110;
+    position: absolute; }
+  .divRegistro .con {
+    min-width: 150px;
+    width: 35vw;
+    height: auto;
+    background-color: white;
+    display: table;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    z-index: 120; }
+    .divRegistro .con h1 {
+      text-align: center; }
+    .divRegistro .con div {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      position: relative;
+      margin-bottom: .5rem;
+      margin-top: .5rem;
+      font-size: 1.1rem; }
+      .divRegistro .con div label {
+        width: 30%;
+        height: auto;
+        display: inline-block;
+        position: relative; }
+      .divRegistro .con div input[type='text'], .divRegistro .con div input[type='email'], .divRegistro .con div input[type=password] {
+        width: 68%;
+        height: auto;
+        display: inline-block;
+        font-weight: 500;
+        position: relative;
+        border: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+        color: rgba(0, 0, 0, 0.6); }
+        .divRegistro .con div input[type='text']:hover, .divRegistro .con div input[type='email']:hover, .divRegistro .con div input[type=password]:hover {
+          border-bottom: 2px solid black;
+          color: black; }
+      .divRegistro .con div .btn {
+        margin: auto;
+        align-self: center; }
+
+/*# sourceMappingURL=general.css.map */

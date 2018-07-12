@@ -7,109 +7,54 @@ using System.Web.UI.WebControls;
 
 public partial class Administracion_Usuarios : System.Web.UI.Page
 {
-    DropDownList rolNew0 = new DropDownList();
-    DropDownList rolNew1 = new DropDownList();
-    DropDownList rolNew2 = new DropDownList();
-    DropDownList rolNew3 = new DropDownList();
-    DropDownList rolNew4 = new DropDownList();
-    DropDownList rolNew5 = new DropDownList();
-    DropDownList rolNew6 = new DropDownList();
-    DropDownList rolNew7 = new DropDownList();
+    private Extras herrmientas = new Extras();
+    private string idUsuarioActual = "";
+    private string mensaje = "";
+    private usuarioDao usuDao;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!IsPostBack)
         {
-           
+            if (Request.QueryString["v"] != null)
+            {
+                switch (Convert.ToChar(Request.QueryString["v"].ToString()))
+                {
+
+                    case '0':
+                        mvUsuarios.ActiveViewIndex = 0;
+                        if(idUsuario.Text ==  "0" || idUsuario.Text == "")
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+                        rellenaDropDown();
+                        break;
+
+                    case '1':
+
+                        mvUsuarios.ActiveViewIndex = 1;
+
+                        break;
+                }
+            }
         }
     }
 
     protected void btnRegis_Click(object sender, EventArgs e)
     {
-        if (txtContra1.Text == txtContra2.Text)
+        idUsuarioActual = Session["idUsuario"].ToString();
+        if (idUsuario.Text == "0" || idUsuario.Text == "")
         {
-            if (System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".jpg"|| System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".png"|| System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".gif")
-            {
-                int[] roles=null;
-                if (txtTipoUs.Visible&& txtTipoUs1.Visible&& txtTipoUs2.Visible&& txtTipoUs3.Visible&& txtTipoUs4.Visible&& txtTipoUs5.Visible&& txtTipoUs6.Visible&& txtTipoUs7.Visible)
-                {
-                    roles = new int[8];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                    roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
-                    roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
-                    roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
-                    roles[6] = Convert.ToInt32(txtTipoUs6.SelectedValue);
-                    roles[7] = Convert.ToInt32(txtTipoUs7.SelectedValue);
-                }else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && txtTipoUs5.Visible && txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[7];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                    roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
-                    roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
-                    roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
-                    roles[6] = Convert.ToInt32(txtTipoUs6.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[6];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                    roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
-                    roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
-                    roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[5];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                    roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
-                    roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[4];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                    roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[3];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                    roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && txtTipoUs1.Visible && !txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[2];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                    roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
-                }
-                else if (txtTipoUs.Visible && !txtTipoUs1.Visible && !txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
-                {
-                    roles = new int[1];
-                    roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
-                }
-                cUsuarios obj = new cUsuarios(0, txtnombre.Text, txtApPa.Text, txtApMa.Text, txtRFC.Text, txtTelefono.Text, txtCorreo.Text, roles, Convert.ToInt32(txtOficina.SelectedValue), txtIngreso.Text, txtContra1.Text, txtFoto.FileName, 1);
-            }
-            else
-            {
-                String alert = "$.alert({title: 'Oh!',theme: 'material',content: 'No es un archivo de imagen válido',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
-                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", alert, true);
-            }
+            nuevoUsuario();
         }
         else
         {
-            String alert = "$.alert({title: 'Oh!',theme: 'material',content: 'Las contraseñas no coinciden',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
-            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", alert, true);
+            modificaUsuario();
         }
     }
     protected void btnNuevoRol_Click(object sender, EventArgs e)
@@ -189,4 +134,197 @@ public partial class Administracion_Usuarios : System.Web.UI.Page
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", alert, true);
         }
     }   
+
+    private void rellenaDropDown()
+    {
+        idUsuarioActual = Session["idUsuario"].ToString();
+
+        txtTipoUs.DataSource = herrmientas.traeCatalogo(idUsuarioActual, 9);
+        txtTipoUs.DataValueField = "idRol";
+        txtTipoUs.DataTextField = "descripcionRol";
+        txtTipoUs.DataBind();
+
+        txtTipoUs1.DataSource = herrmientas.Tabla;
+        txtTipoUs1.DataValueField = "idRol";
+        txtTipoUs1.DataTextField = "descripcionRol";
+        txtTipoUs1.DataBind();
+
+        txtTipoUs2.DataSource = herrmientas.Tabla;
+        txtTipoUs2.DataValueField = "idRol";
+        txtTipoUs2.DataTextField = "descripcionRol";
+        txtTipoUs2.DataBind();
+
+        txtTipoUs3.DataSource = herrmientas.Tabla;
+        txtTipoUs3.DataValueField = "idRol";
+        txtTipoUs3.DataTextField = "descripcionRol";
+        txtTipoUs3.DataBind();
+
+        txtTipoUs4.DataSource = herrmientas.Tabla;
+        txtTipoUs4.DataValueField = "idRol";
+        txtTipoUs4.DataTextField = "descripcionRol";
+        txtTipoUs4.DataBind();
+
+        txtTipoUs5.DataSource = herrmientas.Tabla;
+        txtTipoUs5.DataValueField = "idRol";
+        txtTipoUs5.DataTextField = "descripcionRol";
+        txtTipoUs5.DataBind();
+
+        txtTipoUs6.DataSource = herrmientas.Tabla;
+        txtTipoUs6.DataValueField = "idRol";
+        txtTipoUs6.DataTextField = "descripcionRol";
+        txtTipoUs6.DataBind();
+
+        txtTipoUs7.DataSource = herrmientas.Tabla;
+        txtTipoUs7.DataValueField = "idRol";
+        txtTipoUs7.DataTextField = "descripcionRol";
+        txtTipoUs7.DataBind();
+
+        txtOficina.DataSource = herrmientas.traeCatalogo(idUsuarioActual, 1);
+        txtOficina.DataValueField = "idOficina";
+        txtOficina.DataTextField = "descripcionOficina";
+        txtOficina.DataBind();
+    }
+
+    protected void btnBuscar_Click(object sender, EventArgs e)
+    {
+        idUsuarioActual = Session["idUsuario"].ToString();
+        usuDao = new usuarioDao(idUsuarioActual);
+        usuDao.traeVarios(txtBusqueda.Text);
+        tbl_Usuario.DataSource = usuDao.Tabla;
+        tbl_Usuario.DataBind();
+    }
+
+    private void nuevoUsuario()
+    {
+        if (txtContra1.Text != "" && txtContra2.Text != "")
+        {
+            if (txtContra1.Text == txtContra2.Text)
+            {
+                if (System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".jpg" || System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".png" || System.IO.Path.GetExtension(txtFoto.FileName).ToLower() == ".gif")
+                {
+                    int[] roles = getRoles();
+                    usuarioDao usuDao = new usuarioDao(idUsuarioActual);
+                    usuario contenedorUsuario = new usuario(0, txtnombre.Text, txtApPa.Text, txtApMa.Text, "", "", txtRFC.Text, txtTelefono.Text, txtCorreo.Text, roles, Convert.ToInt32(txtOficina.SelectedValue), txtIngreso.Text, txtContra1.Text, txtCorreo.Text, txtFoto.FileName);
+                    if (usuDao.subir(contenedorUsuario))
+                    {
+                        mensaje = "$.alert({title: 'Oh!',theme: 'material',content: '" + usuDao.Msj + "',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+                        idUsuario.Text = usuDao.Objeto.IdUsuario + "";
+                    }
+                    else
+                    {
+                        mensaje = "$.alert({title: 'Oh!',theme: 'material',content: '" + usuDao.Msj + "',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+                    }
+                    ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", mensaje, true);
+                }
+                else
+                {
+                    mensaje = "$.alert({title: 'Oh!',theme: 'material',content: 'No es un archivo de imagen válido',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+                    ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", mensaje, true);
+                }
+            }
+            else
+            {
+                mensaje = "$.alert({title: 'Oh!',theme: 'material',content: 'Las contraseñas no coinciden',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", mensaje, true);
+            }
+        }
+        else
+        {
+            mensaje = "$.alert({title: 'Oh!',theme: 'material',content: 'Las contraseñas no son validas.',buttons:{cerrar: {text:'Cerrar',btnClass:'btn-info'}}}); ";
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "err_msg", mensaje, true);
+        }
+    }
+
+    private void modificaUsuario()
+    {
+
+    }
+
+    private int[] getRoles()
+    {
+        int[] roles = null;
+        if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && txtTipoUs5.Visible && txtTipoUs6.Visible && txtTipoUs7.Visible)
+        {
+            roles = new int[8];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+            roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
+            roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
+            roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
+            roles[6] = Convert.ToInt32(txtTipoUs6.SelectedValue);
+            roles[7] = Convert.ToInt32(txtTipoUs7.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && txtTipoUs5.Visible && txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[7];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+            roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
+            roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
+            roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
+            roles[6] = Convert.ToInt32(txtTipoUs6.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[6];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+            roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
+            roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
+            roles[5] = Convert.ToInt32(txtTipoUs5.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[5];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+            roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
+            roles[4] = Convert.ToInt32(txtTipoUs4.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[4];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+            roles[3] = Convert.ToInt32(txtTipoUs3.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[3];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+            roles[2] = Convert.ToInt32(txtTipoUs2.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && txtTipoUs1.Visible && !txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[2];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+            roles[1] = Convert.ToInt32(txtTipoUs1.SelectedValue);
+        }
+        else if (txtTipoUs.Visible && !txtTipoUs1.Visible && !txtTipoUs2.Visible && !txtTipoUs3.Visible && !txtTipoUs4.Visible && !txtTipoUs5.Visible && !txtTipoUs6.Visible && !txtTipoUs7.Visible)
+        {
+            roles = new int[1];
+            roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
+        }
+        return roles;
+    }
+
+    private void traeInfoUsuario()
+    {
+        txtRFC.Text = usuDao.Objeto.Rfc;
+        txtTelefono.Text = usuDao.Objeto.Telefono;
+        txtCorreo.Text = usuDao.Objeto.Email;
+        //roles;
+        //  Convert.ToInt32(txtOficina.SelectedValue, 
+        txtIngreso.Text = usuDao.Objeto.FechaIngreso;
+        txtnombre.Text = usuDao.Objeto.Nombre;
+        txtApMa.Text = usuDao.Objeto.Materno;
+        txtApPa.Text = usuDao.Objeto.Paterno;
+        txtCorreo.Text = usuDao.Objeto.Email;
+    }
 }
