@@ -12,33 +12,26 @@ public partial class Midas : System.Web.UI.MasterPage
     {
         if (!IsPostBack)
         {
-           /* if (HttpContext.Current.Session["Person_ID"] != null)
+            if (HttpContext.Current.Session["idUsuario"] != null)
             {
-
-               // lblFecha.Text = DateTime.Now.ToLongDateString();
+                lblFecha.Text = DateTime.Now.ToLongDateString();
                 LlenaDatosPersonales();
             }
             else
             {
                 Response.Redirect("~/Default.aspx");
-            }*/
-
-
-
+            }
         }
     }
 
     private void LlenaDatosPersonales()
     {
-        int PersonaID = Convert.ToInt32(HttpContext.Current.Session["Person_ID"].ToString());
-        cUsuarios cu = new cUsuarios(PersonaID);
-
-        DataTable tbl = cu.TraeInfoUsuario(0);
-        if (tbl.Rows.Count > 0)
-        {
-            lblNombre.Text = tbl.Rows[0]["Name_RS"].ToString();
-            imgFoto.ImageUrl = "Administracion/user/photo/" + tbl.Rows[0]["Photo"].ToString(); ;
-        }
+       int PersonaID = Convert.ToInt32(HttpContext.Current.Session["idUsuario"].ToString());
+       usuarioDao cu = new usuarioDao(PersonaID);
+       cu.traeUno(PersonaID);
+       lblNombre.Text = cu.Objeto.Nombre;
+       imgFoto.ImageUrl = "Administracion/user/photo/" + cu.Objeto.Foto;
+        
     }
     protected void lnkCerrarSesion_Click(object sender, EventArgs e)
     {
