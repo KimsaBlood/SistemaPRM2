@@ -12,7 +12,13 @@ public partial class Index : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            if (Session["idUsuario"] != null)
+            {
+                Server.Transfer("Midas.aspx", true);
+            }
+        }
     }
 
 

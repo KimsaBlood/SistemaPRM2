@@ -291,7 +291,7 @@ public class cUsuarios
                 Password = new Extras().ConvierteMD5(Password);
             }
 
-            DataTable tblUsr = sql.TraerDataTable("sp_SavePerson", PersonID, Nombre, APaterno, AMaterno, RFC, Telefono, Email, Rol, Oficina, FecIngreso, User, Password, Status, Foto, UserReg);
+            DataTable tblUsr = sql.TraerDataTable("sp_Usuario", UserReg,0,PersonID,Email,Telefono,tipoTel, RFC,Nombre, APaterno, AMaterno, Nacimiento, Password, User, Extra, Foto, Oficina);
 
             if (tblUsr.Rows.Count > 0)
             {

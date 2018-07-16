@@ -98,7 +98,8 @@ public partial class Administracion_Usuarios : System.Web.UI.Page
                     roles = new int[1];
                     roles[0] = Convert.ToInt32(txtTipoUs.SelectedValue);
                 }
-                cUsuarios obj = new cUsuarios(0, txtnombre.Text, txtApPa.Text, txtApMa.Text, txtRFC.Text, txtTelefono.Text, txtCorreo.Text, roles, Convert.ToInt32(txtOficina.SelectedValue), txtIngreso.Text, txtContra1.Text, txtFoto.FileName, 1);
+                cUsuarios obj = new cUsuarios(0, txtnombre.Text, txtApPa.Text, txtApMa.Text, txtRFC.Text, txtTelefono.Text, txtCorreo.Text, roles, Convert.ToInt32(txtOficina.SelectedValue), txtIngreso.Text, txtContra1.Text, txtFoto.FileName,1);
+                obj.GuardaUsuario(Convert.ToInt32(Session["idUsuario"]));
             }
             else
             {
